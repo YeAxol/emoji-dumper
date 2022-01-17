@@ -47,7 +47,7 @@ async def on_ready():
 						outFile.write(data)
 
 	print('All done!')
-	await client.logout()
+	await client.close()
 
 
 if len(sys.argv) == 2:
@@ -55,7 +55,7 @@ if len(sys.argv) == 2:
 		client.run(sys.argv[1], bot=False)
 	except discord.LoginFailure:
 		print('oops!')
-		client.logout()
+		client.close()
 elif len(sys.argv) == 3:
 	try:
 		client.run(sys.argv[1], sys.argv[2])
